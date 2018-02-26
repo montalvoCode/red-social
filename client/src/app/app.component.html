@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">{{title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto" *ngIf="identity">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">Inicio
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">TimeLine</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Gente</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav mr-auto" *ngIf="!identity">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">
+          <span class="glyphicon glyphicon-log-in"></span>Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/registro']" [routerLinkActive]="['active']">
+          <span class="glyphicon glyphicon-user"></span> Registro</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
