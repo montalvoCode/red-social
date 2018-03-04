@@ -1,4 +1,4 @@
-  /*Generales*/
+/*Generales*/
   .h1-strong{
     font-size: 35px;
     font-weight: bold;
@@ -13,9 +13,13 @@ body {
     padding-top: 3.5rem;
 }
 
-jumbotron{
+.jumbotron{
     padding: 20px;
     border-radius: 20px;
+}
+
+.dropdown-menu *{
+
 }
 
 /*Cabecera*/
