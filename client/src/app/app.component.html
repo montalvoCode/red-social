@@ -1,4 +1,105 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav>
+  <ul *ngIf="identity">
+    <li>
+      <a href="#">{{title}}</a>
+    </li>
+    <li>
+      <a [routerLink]="['/home']" [routerLinkActive]="['active']">
+        <span><i class="fa fa-home" aria-hidden="true"></i></span>Inicio</a>
+    </li>
+    <li>
+      <a href="#"><span><i class="fa fa-list" aria-hidden="true"></i></span>TimeLine</a>
+    </li>
+    <li>
+      <a href="#"><span><i class="fa fa-users" aria-hidden="true"></i></span>Gente</a>
+    </li>
+    
+    <li class="has-children">
+      <a href="#">{{identity.name}}
+        <span><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+        <span><img src="{{ url + 'get-image-user/' + identity.image }}" *ngIf="identity && identity.image"></span>
+      </a>
+      <ul>
+        <li>
+          <a href="#"><span><i class="fa fa-user" aria-hidden="true"></i></span>Mi perfil</a>
+        </li>
+        <li>
+          <a [routerLink]="['/mis-datos']"><span><i class="fa fa-pencil" aria-hidden="true"></i></span>Mis datos</a>
+        </li>
+        <li>
+          <a (click)="logout()" href="#"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span>Cerrar sesión</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul *ngIf="!identity">
+    <li>
+      <a href="#">{{title}}</a>
+    </li>
+
+    <li>
+      <a [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
+    </li>
+
+    <li>
+      <a [routerLink]="['/registro']" [routerLinkActive]="['active']"> Registro</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+
+<!--<div class="wrapper">
+  <nav>
+    <ul *ngIf="identity">
+      <li>
+        <a href="#">{{title}}</a>
+      </li>
+      <li>
+        <a [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio</a>
+      </li>
+      <li>
+        <a href="#">TimeLine</a>
+      </li>
+      <li>
+        <a href="#">Gente</a>
+      </li>
+    </ul>
+
+    <ul *ngIf="!identity">
+      <li>
+        <a href="#">{{title}}</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['/registro']" [routerLinkActive]="['active']"> Registro</a>
+      </li>
+    </ul>
+
+    <nav>
+      <ul *ngIf="identity" class="subMenu">
+        <li>
+          <a href="#">
+            {{identity.name}}
+          </a>
+          <div aria-labelledby="navbarDropdownMenuLink">
+            <a href="#">Mi perfil</a>
+            <a [routerLink]="['/mis-datos']">Mis dato</a>
+            <a (click)="logout()" href="#">Cerrar sesión</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+  </nav>
+</div>
+<router-outlet></router-outlet>-->
+
+<!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="#">{{title}}</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -46,4 +147,4 @@
 
   </div>
 </nav>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet>-->

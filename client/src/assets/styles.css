@@ -1,5 +1,137 @@
-/*Generales*/
-  .h1-strong{
+img{
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  overflow: hidden;
+  margin-top: -8px;
+  margin-right: 3px;
+}
+
+html,body,nav, ul, li, a, span{
+    margin:0; padding:0;
+  }
+  body{
+    font-family:helvetica;
+    font-size:16px;
+  }
+  nav ul {
+    background-color:#444;
+    display:flex;
+    flex-direction:column;    
+  }
+  nav ul li{
+    list-style-type: none;
+  }
+  nav ul li a{
+    padding:.8rem 1rem;
+    display:block;
+    text-decoration: none;
+    color:#f9f9f9;
+  }
+  nav ul li:hover{
+    background:rgba(0,0,0, .25);
+  }
+  
+  .arrow{
+    font-family:FontAwesome;
+    float:right;
+  }
+  .arrow-down::after{
+    content:"\f107";
+  }
+  .arrow-right::after{
+    content:"\f105";
+  }
+  
+  
+  @media only screen and (max-width:480px){
+    .has-children ul li a{
+      padding-left:2rem;
+    }
+    
+    .has-children ul .has-children ul a{
+      padding-left:3rem;
+    }
+    .arrow-down::after{
+      content:"\f107";
+    }
+  }
+  
+  @media only screen and (min-width:480px){
+    nav ul{
+      flex-direction:row;
+  /*     justify-content:flex-end; */
+    }
+    nav ul li{
+      position:relative;
+      flex:1 0 auto;
+      text-align:left;
+    }
+    .has-children ul, .has-children ul .has-children ul{
+      display:none;
+      width:100%;
+      position:absolute;
+    }
+    .has-children ul .has-children ul{
+      left:100%;
+      top:0;
+    }
+    nav ul li:hover ul,  .has-children ul .has-children:hover ul{
+       display:flex;
+      flex-direction:column;
+    }
+    
+  }
+
+/*
+*{
+    font-family: inherit;
+    margin: 0;
+}
+
+body{
+    background: #eee;
+}
+
+.wrapper{
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+nav{
+    background: #333;
+}
+
+nav ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+nav a{
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    display: block;
+    padding: 10px;
+}
+
+nav a:hover{
+    background-color: #555;
+}
+
+@media screen and (min-width: 768px){
+    nav ul{
+        display: flex;
+        justify-content: flex-start
+    }
+
+    nav{
+        display: flex;
+    }
+}
+
+.h1-strong{
     font-size: 35px;
     font-weight: bold;
     margin-left: 13px;
@@ -18,7 +150,6 @@ body {
     border-radius: 20px;
 }
 
-/*Cabecera*/
 .navigation {
     padding: 0px !important;
 }
@@ -35,4 +166,4 @@ body {
 
 .navigation .navbar a:hover{
     background: #cc1717 !important;
-}
+}*/
