@@ -5,29 +5,52 @@
     </li>
     <li>
       <a [routerLink]="['/home']" [routerLinkActive]="['active']">
-        <span><i class="fa fa-home" aria-hidden="true"></i></span>Inicio</a>
+        <span>
+          <i class="fa fa-home" aria-hidden="true"></i>
+        </span>Inicio</a>
     </li>
     <li>
-      <a href="#"><span><i class="fa fa-list" aria-hidden="true"></i></span>TimeLine</a>
+      <a href="#">
+        <span>
+          <i class="fa fa-list" aria-hidden="true"></i>
+        </span>TimeLine</a>
     </li>
     <li>
-      <a href="#"><span><i class="fa fa-users" aria-hidden="true"></i></span>Gente</a>
+      <a [routerLink]="['/gente']" [routerLinkActive]="['active']">
+        <span>
+          <i class="fa fa-users" aria-hidden="true"></i>
+        </span>Gente</a>
     </li>
-    
+
     <li class="has-children">
       <a href="#">{{identity.name}}
-        <span><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
-        <span><img src="{{ url + 'get-image-user/' + identity.image }}" *ngIf="identity && identity.image"></span>
+        <span>
+          <i class="fa fa-arrow-down" aria-hidden="true"></i>
+        </span>
+        <div class="image-menu pull-left">
+            <a href="#">
+                <img src="{{ url + 'get-image-user/' + identity.image }}" *ngIf="identity && identity.image">
+              </a>
+        </div>
       </a>
       <ul>
         <li>
-          <a href="#"><span><i class="fa fa-user" aria-hidden="true"></i></span>Mi perfil</a>
+          <a href="#">
+            <span>
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </span>Mi perfil</a>
         </li>
         <li>
-          <a [routerLink]="['/mis-datos']"><span><i class="fa fa-pencil" aria-hidden="true"></i></span>Mis datos</a>
+          <a [routerLink]="['/mis-datos']">
+            <span>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </span>Mis datos</a>
         </li>
         <li>
-          <a (click)="logout()" href="#"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span>Cerrar sesión</a>
+          <a (click)="logout()" href="#">
+            <span>
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </span>Cerrar sesión</a>
         </li>
       </ul>
     </li>
@@ -48,103 +71,3 @@
   </ul>
 </nav>
 <router-outlet></router-outlet>
-
-<!--<div class="wrapper">
-  <nav>
-    <ul *ngIf="identity">
-      <li>
-        <a href="#">{{title}}</a>
-      </li>
-      <li>
-        <a [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio</a>
-      </li>
-      <li>
-        <a href="#">TimeLine</a>
-      </li>
-      <li>
-        <a href="#">Gente</a>
-      </li>
-    </ul>
-
-    <ul *ngIf="!identity">
-      <li>
-        <a href="#">{{title}}</a>
-      </li>
-
-      <li>
-        <a [routerLink]="['/login']" [routerLinkActive]="['active']">Login</a>
-      </li>
-
-      <li>
-        <a [routerLink]="['/registro']" [routerLinkActive]="['active']"> Registro</a>
-      </li>
-    </ul>
-
-    <nav>
-      <ul *ngIf="identity" class="subMenu">
-        <li>
-          <a href="#">
-            {{identity.name}}
-          </a>
-          <div aria-labelledby="navbarDropdownMenuLink">
-            <a href="#">Mi perfil</a>
-            <a [routerLink]="['/mis-datos']">Mis dato</a>
-            <a (click)="logout()" href="#">Cerrar sesión</a>
-          </div>
-        </li>
-      </ul>
-    </nav>
-
-  </nav>
-</div>
-<router-outlet></router-outlet>-->
-
-<!--<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="#">{{title}}</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto" *ngIf="identity">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">Inicio
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">TimeLine</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Gente</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav mr-auto" *ngIf="!identity">
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">
-          <span class="glyphicon glyphicon-log-in"></span>Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/registro']" [routerLinkActive]="['active']">
-          <span class="glyphicon glyphicon-user"></span> Registro</a>
-      </li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right" *ngIf="identity">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{identity.name}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Mi perfil</a>
-          <a class="dropdown-item" [routerLink]="['/mis-datos']">Mis dato</a>
-          <a class="dropdown-item" (click)="logout()" href="#">Cerrar sesión</a>
-        </div>
-      </li>
-    </ul>
-
-  </div>
-</nav>
-<router-outlet></router-outlet>-->
